@@ -1,0 +1,5 @@
+#+TITLE: Miscellaneous Haskell Code
+
+This repository contains some miscellaneous Haskell programs I've 
+written to experiment with the language.
+
