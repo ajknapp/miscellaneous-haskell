@@ -1,19 +1,19 @@
 #+TITLE: Numerical Quantum Mechanics in Haskell
 
 * Motivation
-  Since the 1920's, physicists have been thrust into the real of quantum
-  mechanics.  Unfortunately, this means that analytical solutions are much more
-  difficult to come by than in the classical realm.  In most introductory
+  Since the 1920's, physicists have been thrust into the realm of quantum
+  mechanics. Unfortunately, this means that analytical solutions are much more
+  difficult to come by than in the classical realm. In most introductory
   courses, the second or third example system results in an (unsolveable)
-  transcendental equation.  Hence physicists and engineers that use quantum
+  transcendental equation. Hence physicists and engineers that use quantum
   mechanics to solve problems have embraced numerical computing wholeheartedly.
   There are still many difficulties, however, since the dimension of the state
-  space grows exponentially with the number of particles.  To tame the explosion
-  of computation, physicists look at simplified systems.  This article examines
-  one such system - a group of molecules whose resonant frequencies are
-  distributed in a given manner interacting with a laser.  We will observe a
-  phenomena known as a photon echo, where a quantum system absorbs a pulse from
-  a laser, and reemits it at a later time.
+  space grows exponentially with the number of particles. To tame the explosion
+  of computational complexity, physicists look at simplified systems. This
+  article examines one such system - a group of molecules whose resonant
+  frequencies are distributed in a given manner interacting with a laser. We
+  will observe a phenomena known as a photon echo, where a quantum system
+  absorbs a pulse from a laser, and reemits it at a later time.
 
 *** Assumed Knowledge
     This article assumes a working knowledge of the mathematics and notation of
@@ -36,7 +36,7 @@
     states.  Even if we do this, the system is still far too ugly to work with
     in an article like this:
     
-    #+CAPTION: Better eat your Wheaties before working with this one.
+    #+CAPTION: Better eat your Wheaties before working with this one; it goes onto the next page. (From L. Mandel & E. Wolf's /Optical Coherence and Quantum Optics/)
     #+ATTR_HTML: :width 90%
     [[./ugly.png]]
     
@@ -76,9 +76,9 @@
     can then leave out the equation updating \(\rho_{eg}\).  \(\Omega\) is the
     so-called generalized [[http://en.wikipedia.org/wiki/Rabi_frequency][Rabi frequency]] that relates the frequency of the laser
     pulse with detuning \(\delta\) from the resonant frequency of the atom to
-    its spontaneous emission of radiation.
+    the atom's frequency of spontaneous emission of radiation.
 
-    #+CAPTION: The Bloch Sphere for the 2D Maxwell-Bloch Equations
+    #+CAPTION: The Bloch Sphere for the 2D Maxwell-Bloch Equations (From L. Allen & J.H. Eberly's /Optical Resonance and Two-Level Atoms/)
     #+ATTR_HTML: :width 90%
     [[./bloch-sphere.png]]
     
@@ -395,7 +395,7 @@ sys	0m24.393s
 *** Thoughts on Using Haskell
     Overall, using Haskell was an enjoyable experience. I made a few typos when
     translating from the original Fortran, but it was easy enough to figure out
-    what was wrong with =Debug.Trace=. It was much easier to parallelize as
+    what was wrong with =Debug.Trace=. It was quite easy to parallelize as
     well. A minor pain point was =^.= from lens, which doesn't work as
     consistently the =%= notation does in Fortran due to other operators with
     the same precedence. I had no problems with excessive memory usage or
@@ -411,7 +411,6 @@ sys	0m24.393s
 
     Once I figure out how to do faster IO, I'd be very interested in doing some
     more experiments with fancier numerical gizmos, like multigrid, spectral, or
-    adaptive finite element methods.  The more sophisticated data structures in
-    those methods would make writing such things in Fortran pure misery, and
-    even C++ (which is a "too high-level" to many in this line of work) would be
-    painful.
+    finite element methods. The more sophisticated data structures in those
+    methods would make writing such things in Fortran pure misery, and even C++
+    (which is a "too high-level" to many in this line of work) would be painful.
