@@ -76,7 +76,7 @@
     can then leave out the equation updating \(\rho_{eg}\).  \(\Omega\) is the
     so-called generalized [[http://en.wikipedia.org/wiki/Rabi_frequency][Rabi frequency]] that relates the frequency of the laser
     pulse with detuning \(\delta\) from the resonant frequency of the atom to
-    the atom's frequency of spontaneous emission of radiation.
+    the atom's frequency of spontaneously emitted radiation.
 
     #+CAPTION: The Bloch Sphere for the 2D Maxwell-Bloch Equations (From L. Allen & J.H. Eberly's /Optical Resonance and Two-Level Atoms/)
     #+ATTR_HTML: :width 90%
