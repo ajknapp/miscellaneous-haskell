@@ -1,4 +1,6 @@
 #+TITLE: Numerical Quantum Mechanics in Haskell
+#+AUTHOR: Andrew Knapp
+#+OPTIONS: toc:nil
 
 * Motivation
   Since the 1920's, physicists have been thrust into the realm of quantum
@@ -17,8 +19,9 @@
 
 *** Assumed Knowledge
     This article assumes a working knowledge of the mathematics and notation of
-    introductory quantum mechanics, conceptual understanding of the [[http://en.wikipedia.org/wiki/Density_matrix][density matrix]],
-    and a working understanding of the [[http://en.wikipedia.org/wiki/Runge-Kutta_method][Runge-Kutta method]].
+    introductory quantum mechanics, conceptual understanding of the [[http://en.wikipedia.org/wiki/Density_matrix][density
+    matrix]], and a working understanding of the [[http://en.wikipedia.org/wiki/Runge-Kutta_method][Runge-Kutta method]]. It also
+    assumes familiarity with Haskell's =lens= library.
   
 * Physics Background
 *** The System of Interest
@@ -347,9 +350,9 @@ foldl1' _ _ = error "foldl1'"
                in (rho11', rho12', rho22', dipole', n+1)
   
             -- Simulate one atom for n timesteps
-            simulateAtom r11 r12 r22 dpl w = U.map (^._4)
-                                             $ U.iterateN (conf^.nt) quux (r11, r12, r22, dpl, 0)
-                where quux (rho11', rho12', rho22', dipole', n') = step rho11' rho12' rho22' dipole' w n'
+            simulateAtom r11 r12 r22 dpl w = nextDipole
+                where step' (rho11', rho12', rho22', dipole', n') = step rho11' rho12' rho22' dipole' w n'
+                      nextDipole = U.map (^._4) $ U.iterateN (conf^.nt) step' (r11, r12, r22, dpl, 0)
 #+end_src
 
   It's unfortunate that there's so much code in the step function, but there's
@@ -386,7 +389,7 @@ sys	0m24.393s
 
   I plotted the output with [[http://plasma-gate.weizmann.ac.il/Grace/][xmgrace]], generating the following plot.
 
-  #+CAPTION: Photonic Echoes
+  #+CAPTION: Results of running the above code.
   #+ATTR_HTML: :width 85%
   [[./photonic-echoes.png]]
 
