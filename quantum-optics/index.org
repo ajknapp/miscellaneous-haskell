@@ -109,7 +109,7 @@
     velocities are all half-integers, they will "echo" their starting
     configuration on the opposite side of the track.
 
-    #+CAPTION: Dephasing and Rephasing on the Bloch Sphere
+    #+CAPTION: Dephasing and Rephasing on the Bloch Sphere (From L. Allen & J.H. Eberly's /Optical Resonance and Two-Level Atoms/)
     #+ATTR_HTML: :width 90%
     [[./runners.png]]
 	      
